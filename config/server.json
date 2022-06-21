@@ -1,0 +1,7 @@
+{
+  "port": 8080,
+  "enableSSL": false,
+  "sslPort": 8443,
+  "deployDir": "D:/temp/python-deploy",
+  "logFileDir": "D:/temp/python-deploy/logs"
+}
