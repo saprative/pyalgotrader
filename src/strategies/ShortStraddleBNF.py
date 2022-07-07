@@ -1,3 +1,4 @@
+import json
 import logging
 from datetime import datetime
 
@@ -5,9 +6,11 @@ from instruments.Instruments import Instruments
 from models.Direction import Direction
 from models.ProductType import ProductType
 from strategies.BaseStrategy import BaseStrategy
+from ticker.FyersTicker import FyersTicker
 from utils.Utils import Utils
 from trademgmt.Trade import Trade
 from trademgmt.TradeManager import TradeManager
+from core.Controller import Controller
 
 # Each strategy has to be derived from BaseStrategy
 class ShortStraddleBNF(BaseStrategy):
@@ -65,16 +68,23 @@ class ShortStraddleBNF(BaseStrategy):
     ATMPESymbol = Utils.prepareWeeklyOptionsSymbol("BANKNIFTY", ATMStrike, 'PE')
     logging.info('%s: ATMCESymbol = %s, ATMPESymbol = %s', self.getName(), ATMCESymbol, ATMPESymbol)
     # create trades
+    symbols = []
+    symbols.append(ATMCESymbol)
+    symbols.append(ATMPESymbol)
+    # data = json.dumps(symbols)
+    # FyersTicker.startTicker(symbols)
     self.generateTrades(ATMCESymbol, ATMPESymbol)
+    TradeManager.startFyersTicker(symbols)
 
   def generateTrades(self, ATMCESymbol, ATMPESymbol):
     numLots = self.calculateLotsPerTrade()
+    print('Number of lots %s',numLots)
     quoteATMCESymbol = self.getQuote(ATMCESymbol)
     quoteATMPESymbol = self.getQuote(ATMPESymbol)
     if quoteATMCESymbol == None or quoteATMPESymbol == None:
       logging.error('%s: Could not get quotes for option symbols', self.getName())
       return
-
+      
     self.generateTrade(ATMCESymbol, numLots, quoteATMCESymbol.lastTradedPrice)
     self.generateTrade(ATMPESymbol, numLots, quoteATMPESymbol.lastTradedPrice)
     logging.info('%s: Trades generated.', self.getName())
@@ -88,10 +98,12 @@ class ShortStraddleBNF(BaseStrategy):
     trade.placeMarketOrder = True
     trade.requestedEntry = lastTradedPrice
     trade.timestamp = Utils.getEpoch(self.startTimestamp) # setting this to strategy timestamp
-    
+    broker = Controller.getBrokerName()
     isd = Instruments.getInstrumentDataBySymbol(optionSymbol) # Get instrument data to know qty per lot
-    trade.qty = isd['lot_size'] * numLots
-    
+    if broker == "zerodha":  
+      trade.qty = isd['lot_size'] * numLots
+    elif broker == "fyers":
+      trade.qty = isd[3] * numLots
     trade.stopLoss = Utils.roundToNSEPrice(trade.requestedEntry + trade.requestedEntry * self.slPercentage / 100)
     trade.target = 0 # setting to 0 as no target is applicable for this trade
 

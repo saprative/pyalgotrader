@@ -6,6 +6,10 @@ from config.Config import getServerConfig, getTimestampsData, saveTimestampsData
 from core.Controller import Controller
 from utils.Utils import Utils
 
+import pandas as pd
+import requests
+import io
+
 class Instruments:
   instrumentsList = None
   symbolToInstrumentMap = None
@@ -53,15 +57,39 @@ class Instruments:
     Instruments.updateLastSavedTimestamp()
 
   @staticmethod
+  def fetchInstrumentsFromFyersServer(exchange):
+    url = ''
+    if exchange == 'NSE': 
+        url = 'https://public.fyers.in/sym_details/NSE_CM.csv'
+    elif exchange == 'BSE':
+            url = 'https://public.fyers.in/sym_details/BSE_CM.csv'
+    elif exchange == 'MCX': 
+        url = 'https://public.fyers.in/sym_details/MCX_COM.csv'
+    elif exchange == 'FNO':
+        url = 'https://public.fyers.in/sym_details/NSE_FO.csv'
+    elif exchange == 'NSC_CD':
+        url = 'https://public.fyers.in/sym_details/NSE_CD.csv'
+    requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
+    res =requests.get(url)
+    df = pd.read_csv(io.BytesIO(res.content))
+    instrumentsList = df.values.tolist()
+    return instrumentsList
+
+  @staticmethod
   def fetchInstrumentsFromServer():
     instrumentsList = []
     try:
       brokerHandle = Controller.getBrokerLogin().getBrokerHandle()
       logging.info('Going to fetch instruments from server...')
-      instrumentsList = brokerHandle.instruments('NSE')
-      instrumentsListFnO = brokerHandle.instruments('NFO')
-      # Add FnO instrument list to the main list
-      instrumentsList.extend(instrumentsListFnO)
+      if Controller.brokerName == 'zerodha':
+        instrumentsList = brokerHandle.instruments('NSE')
+        instrumentsListFnO = brokerHandle.instruments('NFO')
+        # Add FnO instrument list to the main list
+        instrumentsList.extend(instrumentsListFnO)
+      if Controller.brokerName == 'fyers':
+        instrumentsList = Instruments.fetchInstrumentsFromFyersServer('NSE')
+        instrumentsListFNO = Instruments.fetchInstrumentsFromFyersServer('FNO')
+        instrumentsList.extend(instrumentsListFNO)
       logging.info('Fetched %d instruments from server.', len(instrumentsList))
     except Exception as e:
       logging.exception("Exception while fetching instruments from server")
@@ -87,8 +115,12 @@ class Instruments:
     Instruments.symbolToInstrumentMap = {}
     Instruments.tokenToInstrumentMap = {}
     for isd in instrumentsList:
-      tradingSymbol = isd['tradingsymbol']
-      instrumentToken = isd['instrument_token']
+      if Controller.brokerName == 'zerodha':
+        tradingSymbol = isd['tradingsymbol']
+        instrumentToken = isd['instrument_token']
+      if Controller.brokerName == 'fyers':
+        tradingSymbol = isd[9]
+        instrumentToken = isd[13]
       # logging.info('%s = %d', tradingSymbol, instrumentToken)
       Instruments.symbolToInstrumentMap[tradingSymbol] = isd
       Instruments.tokenToInstrumentMap[instrumentToken] = isd

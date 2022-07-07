@@ -6,6 +6,8 @@ from datetime import datetime
 
 from config.Config import getServerConfig
 from core.Controller import Controller
+from ordermgmt.FyersOrderManager import FyersOrderManager
+from ticker.FyersTicker import FyersTicker
 from ticker.ZerodhaTicker import ZerodhaTicker
 from trademgmt.Trade import Trade
 from trademgmt.TradeState import TradeState
@@ -53,11 +55,10 @@ class TradeManager:
     brokerName = Controller.getBrokerName()
     if brokerName == "zerodha":
       TradeManager.ticker = ZerodhaTicker()
-    #elif brokerName == "fyers" # not implemented
-    # ticker = FyersTicker()
-
-    TradeManager.ticker.startTicker()
-    TradeManager.ticker.registerListener(TradeManager.tickerListener)
+      TradeManager.ticker.startTicker()
+      TradeManager.ticker.registerListener(TradeManager.tickerListener)
+    elif brokerName == "fyers":
+      TradeManager.ticker = FyersTicker()    
 
     # sleep for 2 seconds for ticker connection establishment
     time.sleep(2)
@@ -85,6 +86,12 @@ class TradeManager:
       # sleep for 30 seconds and then continue
       time.sleep(30)
       logging.info('TradeManager: Main thread woke up..')
+
+  @staticmethod
+  def startFyersTicker(symbols):
+    TradeManager.ticker.registerListener(TradeManager.tickerListener)
+    TradeManager.ticker.startTicker(symbols)
+    return
 
   @staticmethod
   def registerStrategy(strategyInstance):
@@ -130,7 +137,9 @@ class TradeManager:
     logging.info('TradeManager: trade %s added successfully to the list', trade.tradeID)
     # Register the symbol with ticker so that we will start getting ticks for this symbol
     if trade.tradingSymbol not in TradeManager.registeredSymbols:
-      TradeManager.ticker.registerSymbols([trade.tradingSymbol])
+      brokerName = Controller.getBrokerName()
+      if brokerName == "zerodha":
+        TradeManager.ticker.registerSymbols([trade.tradingSymbol])
       TradeManager.registeredSymbols.append(trade.tradingSymbol)
     # Also add the trade to strategy trades list
     strategyInstance = TradeManager.strategyToInstanceMap[trade.strategy]
@@ -446,7 +455,8 @@ class TradeManager:
     brokerName = Controller.getBrokerName()
     if brokerName == "zerodha":
       orderManager = ZerodhaOrderManager()
-    #elif brokerName == "fyers": # Not implemented
+    elif brokerName == "fyers": 
+      orderManager = FyersOrderManager()
     return orderManager
 
   @staticmethod

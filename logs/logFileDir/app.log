@@ -1,0 +1,145 @@
+2022-07-07 11:43:40: serverConfig => {'port': 8080, 'enableSSL': False, 'sslPort': 8443, 'deployDir': '../logs/deployDir', 'logFileDir': '../logs/logFileDir'}
+2022-07-07 11:43:40: brokerAppConfig => {'zerodha': {'broker': 'zerodha', 'clientID': 'ZV5717', 'appKey': 'o6gjw6zgju069ogb', 'appSecret': 'j9x4vqg15q3nb7z0kusbai2hv1t02uzo', 'redirectUrl': 'http://localhost:8080/apis/broker/login/zerodha'}, 'fyers': {'broker': 'fyers', 'clientID': 'XS32076', 'appKey': '0V7TOYNP2O-100', 'appSecret': '71UCYMGMHG', 'redirectUrl': 'http://localhost:8080/apis/broker/login/fyers'}}
+2022-07-07 11:43:40:  * Debugger is active!
+2022-07-07 11:43:40:  * Debugger PIN: 158-026-876
+2022-07-07 11:43:45: handleBrokerLogin appKey 0V7TOYNP2O-100
+2022-07-07 11:43:45: ==> ZerodhaLogin .args => ImmutableMultiDict([])
+2022-07-07 11:43:45: 127.0.0.1 - - [07/Jul/2022 11:43:45] "GET /apis/broker/login/fyers HTTP/1.1" 302 -
+2022-07-07 11:43:46: handleBrokerLogin appKey 0V7TOYNP2O-100
+2022-07-07 11:43:46: ==> ZerodhaLogin .args => ImmutableMultiDict([('s', 'ok'), ('code', '200'), ('auth_code', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGkubG9naW4uZnllcnMuaW4iLCJpYXQiOjE2NTcxNzQ0MjYsImV4cCI6MTY1NzIwNDQyNiwibmJmIjoxNjU3MTczODI2LCJhdWQiOiJbXCJ4OjBcIiwgXCJ4OjFcIiwgXCJ4OjJcIiwgXCJkOjFcIiwgXCJkOjJcIiwgXCJ4OjFcIiwgXCJ4OjBcIl0iLCJzdWIiOiJhdXRoX2NvZGUiLCJkaXNwbGF5X25hbWUiOiJYUzMyMDc2Iiwibm9uY2UiOiIiLCJhcHBfaWQiOiIwVjdUT1lOUDJPIiwidXVpZCI6IjdkOWMxM2UyMDcxOTRjOTg4YWQzYWM4MWQ5Y2IxMzg2IiwiaXBBZGRyIjoiMC4wLjAuMCIsInNjb3BlIjoiIn0.FYn_6iSxpy-A47NOqwuv0SMItZk7T9jIqlH5u5CZ0ls'), ('state', 'sample_state')])
+2022-07-07 11:43:46: Fyers auth_code = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGkubG9naW4uZnllcnMuaW4iLCJpYXQiOjE2NTcxNzQ0MjYsImV4cCI6MTY1NzIwNDQyNiwibmJmIjoxNjU3MTczODI2LCJhdWQiOiJbXCJ4OjBcIiwgXCJ4OjFcIiwgXCJ4OjJcIiwgXCJkOjFcIiwgXCJkOjJcIiwgXCJ4OjFcIiwgXCJ4OjBcIl0iLCJzdWIiOiJhdXRoX2NvZGUiLCJkaXNwbGF5X25hbWUiOiJYUzMyMDc2Iiwibm9uY2UiOiIiLCJhcHBfaWQiOiIwVjdUT1lOUDJPIiwidXVpZCI6IjdkOWMxM2UyMDcxOTRjOTg4YWQzYWM4MWQ5Y2IxMzg2IiwiaXBBZGRyIjoiMC4wLjAuMCIsInNjb3BlIjoiIn0.FYn_6iSxpy-A47NOqwuv0SMItZk7T9jIqlH5u5CZ0ls
+2022-07-07 11:43:46: Fyers Login successful. accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGkuZnllcnMuaW4iLCJpYXQiOjE2NTcxNzQ0MjYsImV4cCI6MTY1NzI0MDI0NiwibmJmIjoxNjU3MTc0NDI2LCJhdWQiOlsieDowIiwieDoxIiwieDoyIiwiZDoxIiwiZDoyIiwieDoxIiwieDowIl0sInN1YiI6ImFjY2Vzc190b2tlbiIsImF0X2hhc2giOiJnQUFBQUFCaXhubWF6RkYwcG50clBkTG5vQUIxdXN1aWZLSU5QSkt6RGR1aWRlN3QtUmVvS19oX0RiT3djLW5zWllhWUhIWFJsY3ZkT0xOSTc1WDF2VXNJelJZb0lJVkJMeFdjQUc5QWtJVVBCNHdvdDZZbnBEOD0iLCJkaXNwbGF5X25hbWUiOiJTSEFTSEFOSyBSRUREWSBHQU5UQSIsImZ5X2lkIjoiWFMzMjA3NiIsImFwcFR5cGUiOjEwMCwicG9hX2ZsYWciOiJOIn0.bsc63xxVAkMnYv-QD6X_ByIKvC6-Bj3sQt6zalqEtAA
+2022-07-07 11:43:46: Fyers Redirecting to home Page http://localhost:8080?loggedIn=true
+2022-07-07 11:43:46: 127.0.0.1 - - [07/Jul/2022 11:43:46] "GET /apis/broker/login/fyers?s=ok&code=200&auth_code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGkubG9naW4uZnllcnMuaW4iLCJpYXQiOjE2NTcxNzQ0MjYsImV4cCI6MTY1NzIwNDQyNiwibmJmIjoxNjU3MTczODI2LCJhdWQiOiJbXCJ4OjBcIiwgXCJ4OjFcIiwgXCJ4OjJcIiwgXCJkOjFcIiwgXCJkOjJcIiwgXCJ4OjFcIiwgXCJ4OjBcIl0iLCJzdWIiOiJhdXRoX2NvZGUiLCJkaXNwbGF5X25hbWUiOiJYUzMyMDc2Iiwibm9uY2UiOiIiLCJhcHBfaWQiOiIwVjdUT1lOUDJPIiwidXVpZCI6IjdkOWMxM2UyMDcxOTRjOTg4YWQzYWM4MWQ5Y2IxMzg2IiwiaXBBZGRyIjoiMC4wLjAuMCIsInNjb3BlIjoiIn0.FYn_6iSxpy-A47NOqwuv0SMItZk7T9jIqlH5u5CZ0ls&state=sample_state HTTP/1.1" 302 -
+2022-07-07 11:43:46: 127.0.0.1 - - [07/Jul/2022 11:43:46] "GET /?loggedIn=true HTTP/1.1" 200 -
+2022-07-07 11:43:46: Starting Algo...
+2022-07-07 11:43:46: Sending redirect url http://localhost:8080?algoStarted=true in response
+2022-07-07 11:43:46: 127.0.0.1 - - [07/Jul/2022 11:43:46] "POST /apis/algo/start HTTP/1.1" 200 -
+2022-07-07 11:43:46: 127.0.0.1 - - [07/Jul/2022 11:43:46] "GET /?algoStarted=true HTTP/1.1" 200 -
+2022-07-07 11:43:47: Instruments: loaded 92802 instruments from file ../logs/deployDir/instruments.json
+2022-07-07 11:43:47: Fetching instruments done. Instruments count = 92802
+2022-07-07 11:43:49: Algo started.
+2022-07-07 11:43:49: prepareMonthlyExpiryFuturesSymbol[BANKNIFTY] = BANKNIFTY22JULFUT
+2022-07-07 11:43:49: TradeManager: Successfully loaded 0 trades from json file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:43:49: Fyers Going to fetch order book
+2022-07-07 11:43:49: ShortStraddleBNF: Nifty CMP = 34730.150000, ATMStrike = 34700
+2022-07-07 11:43:49: prepareWeeklyOptionsSymbol[BANKNIFTY, 34700, CE, 0] = BANKNIFTY2270734700CE
+2022-07-07 11:43:49: prepareWeeklyOptionsSymbol[BANKNIFTY, 34700, PE, 0] = BANKNIFTY2270734700PE
+2022-07-07 11:43:49: ShortStraddleBNF: ATMCESymbol = NSE:BANKNIFTY2270734700CE, ATMPESymbol = NSE:BANKNIFTY2270734700PE
+2022-07-07 11:43:49: Fyers Order book length = 0
+2022-07-07 11:43:49: Fyers: 0 orders updated with broker order details
+2022-07-07 11:43:49: TradeManager: Saved 0 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:43:49: TradeManager: addNewTrade called for ID=29f6d585-0fcb-494a-8188-cd3e2f8caf4a, state=created, symbol=NSE:BANKNIFTY2270734700CE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=83.5, stopLoss=108.55, target=0, entry=0, exit=0, profitLoss0
+2022-07-07 11:43:49: TradeManager: trade 29f6d585-0fcb-494a-8188-cd3e2f8caf4a added successfully to the list
+2022-07-07 11:43:49: TradeManager: addNewTrade called for ID=604f1e86-b789-4724-bc18-2bf715c8ee4d, state=created, symbol=NSE:BANKNIFTY2270734700PE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=134.6, stopLoss=175.0, target=0, entry=0, exit=0, profitLoss0
+2022-07-07 11:43:49: TradeManager: trade 604f1e86-b789-4724-bc18-2bf715c8ee4d added successfully to the list
+2022-07-07 11:43:49: ShortStraddleBNF: Trades generated.
+2022-07-07 11:43:52: TradeManager: Execute trade called for ID=604f1e86-b789-4724-bc18-2bf715c8ee4d, state=created, symbol=NSE:BANKNIFTY2270734700PE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=134.6, stopLoss=175.0, target=0, entry=0, exit=0, profitLoss0
+2022-07-07 11:43:52: Fyers: Going to place order with params symbol=NSE:BANKNIFTY2270734700PE, exchange=NSE, productType=MIS, segment=EQUITY, direction=SHORT, orderType=MARKET, qty=25, price=134.6, triggerPrice=0, isFnO=True
+2022-07-07 11:43:53: TradeManager: Execute trade successful for ID=604f1e86-b789-4724-bc18-2bf715c8ee4d, state=created, symbol=NSE:BANKNIFTY2270734700PE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=134.6, stopLoss=175.0, target=0, entry=0, exit=0, profitLoss0 and entryOrder orderId=2220707238065, orderStatus=None, symbol=NSE:BANKNIFTY2270734700PE, productType=MIS, orderType=MARKET, price=134.6, triggerPrice=0, qty=25, filledQty=0, pendingQty=0, averagePrice=0
+2022-07-07 11:43:53: TradeManager: Execute trade called for ID=29f6d585-0fcb-494a-8188-cd3e2f8caf4a, state=created, symbol=NSE:BANKNIFTY2270734700CE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=83.5, stopLoss=108.55, target=0, entry=0, exit=0, profitLoss0
+2022-07-07 11:43:53: Fyers: Going to place order with params symbol=NSE:BANKNIFTY2270734700CE, exchange=NSE, productType=MIS, segment=EQUITY, direction=SHORT, orderType=MARKET, qty=25, price=83.5, triggerPrice=0, isFnO=True
+2022-07-07 11:43:53: TradeManager: Execute trade successful for ID=29f6d585-0fcb-494a-8188-cd3e2f8caf4a, state=created, symbol=NSE:BANKNIFTY2270734700CE, strategy=ShortStraddleBNF, direction=SHORT, productType=MIS, reqEntry=83.5, stopLoss=108.55, target=0, entry=0, exit=0, profitLoss0 and entryOrder orderId=2220707238085, orderStatus=None, symbol=NSE:BANKNIFTY2270734700CE, productType=MIS, orderType=MARKET, price=83.5, triggerPrice=0, qty=25, filledQty=0, pendingQty=0, averagePrice=0
+2022-07-07 11:44:19: TradeManager: Main thread woke up..
+2022-07-07 11:44:19: Fyers Going to fetch order book
+2022-07-07 11:44:19: Fyers Order book length = 2
+2022-07-07 11:44:19: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:44:19: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:44:49: TradeManager: Main thread woke up..
+2022-07-07 11:44:49: Fyers Going to fetch order book
+2022-07-07 11:44:49: Fyers Order book length = 2
+2022-07-07 11:44:49: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:44:49: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:45:19: TradeManager: Main thread woke up..
+2022-07-07 11:45:19: Fyers Going to fetch order book
+2022-07-07 11:45:20: Fyers Order book length = 2
+2022-07-07 11:45:20: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:45:20: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:45:50: TradeManager: Main thread woke up..
+2022-07-07 11:45:50: Fyers Going to fetch order book
+2022-07-07 11:45:50: Fyers Order book length = 2
+2022-07-07 11:45:50: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:45:50: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:46:20: TradeManager: Main thread woke up..
+2022-07-07 11:46:20: Fyers Going to fetch order book
+2022-07-07 11:46:20: Fyers Order book length = 2
+2022-07-07 11:46:20: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:46:20: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:46:50: TradeManager: Main thread woke up..
+2022-07-07 11:46:50: Fyers Going to fetch order book
+2022-07-07 11:46:50: Fyers Order book length = 2
+2022-07-07 11:46:50: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:46:50: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:47:20: TradeManager: Main thread woke up..
+2022-07-07 11:47:20: Fyers Going to fetch order book
+2022-07-07 11:47:20: Fyers Order book length = 2
+2022-07-07 11:47:20: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0
+2022-07-07 11:47:20: TradeManager: Saved 2 trades to file ../logs/deployDir/trades/2022-07-07/trades.json
+2022-07-07 11:47:50: TradeManager: Main thread woke up..
+2022-07-07 11:47:50: Fyers Going to fetch order book
+2022-07-07 11:47:51: Fyers Order book length = 2
+2022-07-07 11:47:51: Exception in TradeManager Main thread
+Traceback (most recent call last):
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 77, in run
+    TradeManager.fetchAndUpdateAllTradeOrders()
+  File "/Users/gredd148/algo/pyalgotrader/src/trademgmt/TradeManager.py", line 236, in fetchAndUpdateAllTradeOrders
+    TradeManager.getOrderManager().fetchAndUpdateAllOrderDetails(allOrders)
+  File "/Users/gredd148/algo/pyalgotrader/src/ordermgmt/FyersOrderManager.py", line 118, in fetchAndUpdateAllOrderDetails
+    if order.orderId == bOrder[0]['id']:
+KeyError: 0

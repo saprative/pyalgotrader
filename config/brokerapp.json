@@ -1,7 +1,16 @@
 {
-  "broker": "zerodha",
-  "clientID": "dummy",
-  "appKey": "dummy",
-  "appSecret": "dummy",
-  "redirectUrl": "http://localhost:8080/apis/broker/login/zerodha"
+  "zerodha" : {
+    "broker": "zerodha",
+    "clientID": "dummy",
+    "appKey": "dummy",
+    "appSecret": "dummy",
+    "redirectUrl": "http://localhost:8080/apis/broker/login/zerodha"
+  },
+  "fyers" : {
+    "broker": "fyers",
+    "clientID": "dummy",
+    "appKey": "dummy",
+    "appSecret": "dummy",
+    "redirectUrl": "http://localhost:8080/apis/broker/login/fyers"
+  }
 }

@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from config.Config import getHolidays
 from models.Direction import Direction
 from trademgmt.TradeState import TradeState
+from core.Controller import Controller
 
 class Utils:
   dateFormat = "%Y-%m-%d"
@@ -139,6 +140,9 @@ class Utils:
     monthShort = calendar.month_name[expiryDateTime.month].upper()[0:3]
     futureSymbol = inputSymbol + year2Digits + monthShort + 'FUT'
     logging.info('prepareMonthlyExpiryFuturesSymbol[%s] = %s', inputSymbol, futureSymbol)  
+    broker = Controller.getBrokerName()
+    if broker == "fyers":  
+      futureSymbol = 'NSE:'+futureSymbol
     return futureSymbol
 
   @staticmethod
@@ -176,6 +180,10 @@ class Utils:
       dStr = ("0" + str(d)) if d < 10 else str(d)
       optionSymbol = inputSymbol + str(year2Digits) + mStr + dStr + str(strike) + optionType.upper()
     logging.info('prepareWeeklyOptionsSymbol[%s, %d, %s, %d] = %s', inputSymbol, strike, optionType, numWeeksPlus, optionSymbol)  
+    broker = Controller.getBrokerName()
+    if broker == "fyers":  
+      optionSymbol = 'NSE:'+optionSymbol
+
     return optionSymbol
 
   @staticmethod
