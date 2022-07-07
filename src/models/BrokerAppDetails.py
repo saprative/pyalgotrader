@@ -15,3 +15,5 @@ class BrokerAppDetails:
   def setAppSecret(self, appSecret):
     self.appSecret = appSecret
 
+  def setRedirectUrl(self, redirectUrl):
+        self.redirectUrl = redirectUrl

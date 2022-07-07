@@ -1,9 +1,11 @@
 import logging
+import json
 
 from core.Controller import Controller
 from models.Quote import Quote
 
 class Quotes:
+
   @staticmethod
   def getQuote(tradingSymbol, isFnO = False):
     broker = Controller.getBrokerName()
@@ -32,6 +34,19 @@ class Quotes:
       quote.oiDayLow = bQuote['oi_day_low']
       quote.lowerCiruitLimit = bQuote['lower_circuit_limit']
       quote.upperCircuitLimit = bQuote['upper_circuit_limit']
+    elif broker == "fyers":
+      # key = 'NSE:' + tradingSymbol
+      quote = Quote(tradingSymbol)
+      data = {"symbols":tradingSymbol}
+      bQuote = brokerHandle.quotes(data)
+      bQuote = bQuote['d'][0]['v']
+      quote.tradingSymbol = tradingSymbol
+      quote.lastTradedPrice = bQuote['lp']
+      quote.volume = bQuote['volume']
+      quote.open = bQuote['open_price']
+      quote.high = bQuote['high_price']
+      quote.low = bQuote['low_price']
+      quote.change = bQuote['ch']
     else:
       # The logic may be different for other brokers
       quote = None
