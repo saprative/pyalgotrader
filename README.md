@@ -11,6 +11,7 @@ PyAlgoTrader is python based Algo Trading System (ATS ) for Indian retail invest
 
 ## Getting Started 
 Documentation - https://github.com/saprative/pyalgotrader/wiki
+
 Roadmap - https://github.com/saprative/pyalgotrader/issues
 
 ## References 
@@ -19,7 +20,9 @@ Roadmap - https://github.com/saprative/pyalgotrader/issues
 
 ## Contact
 Telegram - https://t.me/pyalgotrader
+
 Twitter - @PyAlgoTrader 
+
 Email - saprative@gmail.com
 
 Product Developed by PyAlgoTrader Community 
