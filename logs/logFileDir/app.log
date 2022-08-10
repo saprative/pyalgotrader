@@ -1,0 +1,8 @@
+2022-07-24 15:20:20: serverConfig => {'port': 8080, 'enableSSL': False, 'sslPort': 8443, 'deployDir': '../logs/deployDir', 'logFileDir': '../logs/logFileDir'}
+2022-07-24 15:20:20: brokerAppConfig => {'zerodha': {'broker': 'zerodha', 'clientID': 'dummy', 'appKey': 'dummy', 'appSecret': 'dummy', 'redirectUrl': 'http://localhost:8080/apis/broker/login/zerodha'}, 'fyers': {'broker': 'fyers', 'clientID': 'dummy', 'appKey': 'dummy', 'appSecret': 'dummy', 'redirectUrl': 'http://localhost:8080/apis/broker/login/fyers'}}
+2022-07-24 15:20:21:  * Running on http://localhost:8080 (Press CTRL+C to quit)
+2022-07-24 15:20:21:  * Restarting with stat
+2022-07-24 15:20:23: serverConfig => {'port': 8080, 'enableSSL': False, 'sslPort': 8443, 'deployDir': '../logs/deployDir', 'logFileDir': '../logs/logFileDir'}
+2022-07-24 15:20:23: brokerAppConfig => {'zerodha': {'broker': 'zerodha', 'clientID': 'dummy', 'appKey': 'dummy', 'appSecret': 'dummy', 'redirectUrl': 'http://localhost:8080/apis/broker/login/zerodha'}, 'fyers': {'broker': 'fyers', 'clientID': 'dummy', 'appKey': 'dummy', 'appSecret': 'dummy', 'redirectUrl': 'http://localhost:8080/apis/broker/login/fyers'}}
+2022-07-24 15:20:23:  * Debugger is active!
+2022-07-24 15:20:23:  * Debugger PIN: 754-040-898

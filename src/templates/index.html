@@ -23,7 +23,10 @@
     }
   </style>
   <script>
-    function loginToBroker() {
+    function loginToFyersBroker() {
+      window.location.href =  "http://localhost:8080" + "/apis/broker/login/fyers"
+    }
+    function loginToZerodhaBroker() {
       window.location.href =  "http://localhost:8080" + "/apis/broker/login/zerodha"
     }
   </script>
@@ -33,8 +36,11 @@
 <body>
   <h1 style="color: blue" class="center">Welcome to algo trading in python</h1>
   <div class="center">
-    <button class="button" onClick="loginToBroker()">
-      Login to Broker
+    <button class="button" onClick="loginToFyersBroker()">
+      Login to Fyers
+    </button>
+    <button class="button" onClick="loginToZerodhaBroker()">
+      Login to Zerodha
     </button>
   </div>
 </body>
