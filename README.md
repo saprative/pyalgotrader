@@ -1,6 +1,9 @@
 # PyAlgoTrader
-PyAlgoTrader is python based Algo Trading System (ATS ) for Indian retail investers that is open source, customizable, simple and production ready. 
+PyAlgoTrader is python based Algo Trading System (ATS ) which is open source, it helps you write your Algo Trading logic once and run in on all brokers. 
 
+
+# What is Algo Trading ?
+Algo Trading is the process of automating your Trading strategies by writing code. 
 
 ## Installation
 1.  Install Python in your PC
